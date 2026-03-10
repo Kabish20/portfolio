@@ -1,10 +1,10 @@
 services:
   - type: web
     name: portfolio
-    runtime: python
-    pythonVersion: 3.11
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn config.wsgi:application --bind 0.0.0.0:$PORT
+    runtime: node
+    nodeVersion: 18
+    buildCommand: cd ultra-portfolio && npm install && npm run build
+    startCommand: npm install -g serve && serve -s ultra-portfolio/dist -l $PORT
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.11
+      - key: NODE_ENV
+        value: production
