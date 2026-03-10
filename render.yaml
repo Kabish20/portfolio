@@ -3,8 +3,8 @@ services:
     name: portfolio
     runtime: node
     nodeVersion: 18
-    buildCommand: cd ultra-portfolio && npm install && npm run build
-    startCommand: npm install -g serve && serve -s ultra-portfolio/dist -l $PORT
+    buildCommand: cd ultra-portfolio && npm ci && npm run build
+    startCommand: cd ultra-portfolio && npx serve -s dist -l $PORT
     envVars:
       - key: NODE_ENV
         value: production
