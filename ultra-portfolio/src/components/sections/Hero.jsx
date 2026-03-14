@@ -28,7 +28,7 @@ const Hero = () => {
 
         <div className="flex flex-wrap gap-3">
           <a
-            href="https://drive.google.com/file/d/1HFHoqeXpaxjTl1CIyzGYY2Sw-8RapUqG/view?usp=drivesdk"
+            href="https://drive.google.com/file/d/1pnjX6cxVcN-kqQiUxXKK--Fb9cZDIN3A/view?usp=drivesdk"
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-sm font-semibold shadow-neon-card hover:brightness-110 transition"
