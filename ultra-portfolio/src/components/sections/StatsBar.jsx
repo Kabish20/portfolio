@@ -2,24 +2,20 @@ import React from "react";
 import GlassCard from "../common/Glasscard";
 
 const stats = [
-  { label: "Production-style projects", value: "10+", accent: "cyan" },
-  { label: "Tech stack focus", value: "Python · Django · React", accent: "purple" },
-  { label: "Currently learning", value: "Advanced REST · Optimization", accent: "orange" },
+  { label: "Professional experience", value: "1+ year" },
+  { label: "RESTful APIs delivered", value: "15+" },
+  { label: "Education", value: "B.E. · 8.30 CGPA" },
 ];
 
-const StatsBar = () => {
-  return (
-    <div className="grid md:grid-cols-3 gap-4">
-      {stats.map((s) => (
-        <GlassCard key={s.label} className="p-4 md:p-5">
-          <p className="text-xs text-slate-400 mb-1">{s.label}</p>
-          <p className="text-sm md:text-base font-semibold text-slate-100">
-            {s.value}
-          </p>
-        </GlassCard>
-      ))}
-    </div>
-  );
-};
+const StatsBar = () => (
+  <div className="grid md:grid-cols-3 gap-4">
+    {stats.map((stat, index) => (
+      <GlassCard key={stat.label} className="p-5 stat-card" style={{ "--delay": `${index * 120}ms` }}>
+        <p className="text-xs text-slate-400 mb-1">{stat.label}</p>
+        <p className="text-lg font-semibold text-slate-100">{stat.value}</p>
+      </GlassCard>
+    ))}
+  </div>
+);
 
 export default StatsBar;

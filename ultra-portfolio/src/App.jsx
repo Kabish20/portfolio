@@ -7,6 +7,7 @@ import MouseGlow from "./components/layout/MouseGlow";
 import Hero from "./components/sections/Hero";
 import StatsBar from "./components/sections/StatsBar";
 import About from "./components/sections/About";
+import Experience from "./components/sections/Experience";
 import Skills from "./components/sections/Skills";
 import Projects from "./components/sections/Projects";
 import Contact from "./components/sections/Contact";
@@ -35,6 +36,10 @@ const App = () => {
 
         <section id="about" className="pb-16">
           <About />
+        </section>
+
+        <section id="experience" className="pb-16">
+          <Experience />
         </section>
 
         <section id="skills" className="pb-16">

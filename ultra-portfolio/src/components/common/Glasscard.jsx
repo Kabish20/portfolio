@@ -1,6 +1,6 @@
 import React from "react";
 
-const GlassCard = ({ className = "", children }) => {
+const GlassCard = ({ className = "", children, style }) => {
   return (
     <div
       className={
@@ -8,6 +8,7 @@ const GlassCard = ({ className = "", children }) => {
         "transition-transform duration-200 hover:-translate-y-1 hover:shadow-neon-card " +
         className
       }
+      style={style}
     >
       {children}
     </div>

@@ -55,8 +55,8 @@ const Contact = () => {
     <SectionWrapper
       id="contact"
       kicker="Contact"
-      title="Let’s Bulid Something Awesome Together"
-      subtitle= "Actively seeking full-time roles where I can contribute and grow. Let’s connect!"
+      title="Let’s build something useful"
+      subtitle="Actively seeking backend and full-stack roles. Let’s connect."
     >
       {/* neon line + icons */}
       <div className="flex flex-col items-center mb-7">
