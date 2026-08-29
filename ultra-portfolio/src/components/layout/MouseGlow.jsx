@@ -18,7 +18,7 @@ const MouseGlow = () => {
       ref={ref}
       className="pointer-events-none fixed z-0 w-96 h-40 rounded-full blur-3xl
                  bg-gradient-to-r from-primary/30 via-secondary/30 to-accent/30 opacity-40
-                 transition-transform duration-150"
+                 transition-transform duration-150 mix-blend-screen"
     />
   );
 };

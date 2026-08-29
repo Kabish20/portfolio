@@ -1,8 +1,23 @@
 import React from "react";
 
 const SectionWrapper = ({ id, title, kicker, subtitle, children }) => {
+  const sectionRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return undefined;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        section.classList.add("is-visible");
+        observer.disconnect();
+      }
+    }, { threshold: 0.12 });
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id={id} className="pb-16">
+    <section ref={sectionRef} id={id} className="pb-16 reveal-on-scroll">
       <header className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
         <div>
           {kicker && <p className="section-kicker">{kicker}</p>}

@@ -14,9 +14,11 @@ import Contact from "./components/sections/Contact";
 
 const App = () => {
   return (
-    <div className="relative min-h-screen bg-night text-white overflow-hidden">
+    <div className="relative min-h-screen bg-[#050816] text-white overflow-hidden site-shell">
       {/* subtle bg gradients */}
       <div className="pointer-events-none fixed inset-0 -z-10">
+        <div className="ambient-grid absolute inset-0" />
+        <div className="ambient-noise absolute inset-0" />
         <div className="absolute -top-40 -left-40 w-[420px] h-[420px] bg-primary/30 blur-3xl" />
         <div className="absolute top-40 right-[-120px] w-[520px] h-[520px] bg-secondary/25 blur-3xl" />
         <div className="absolute bottom-[-180px] left-1/3 w-[420px] h-[420px] bg-accent/20 blur-3xl" />
