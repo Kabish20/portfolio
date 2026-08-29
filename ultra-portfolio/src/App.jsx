@@ -3,6 +3,8 @@ import "./index.css";
 
 import Navbar from "./components/layout/Navbar";
 import MouseGlow from "./components/layout/MouseGlow";
+import ScrollProgress from "./components/layout/ScrollProgress";
+import AmbientParticles from "./components/layout/AmbientParticles";
 
 import Hero from "./components/sections/Hero";
 import StatsBar from "./components/sections/StatsBar";
@@ -25,6 +27,8 @@ const App = () => {
       </div>
 
       <MouseGlow />
+      <ScrollProgress />
+      <AmbientParticles />
       <Navbar />
 
       <main className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
