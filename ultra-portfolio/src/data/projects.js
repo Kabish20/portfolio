@@ -20,22 +20,22 @@ export const projects = [
 ];
 
 export const skills = [
-  { name: "Python", group: "Backend" },
-  { name: "Django & Django REST", group: "Backend" },
-  { name: "REST API Design", group: "Backend" },
-  { name: "JWT & RBAC", group: "Backend" },
-  { name: "JavaScript (ES6+)", group: "Frontend" },
-  { name: "React.js", group: "Frontend" },
-  { name: "Tailwind CSS", group: "Frontend" },
-  { name: "HTML5 / CSS3", group: "Frontend" },
-  { name: "PostgreSQL", group: "Data" },
-  { name: "MySQL", group: "Data" },
-  { name: "MongoDB", group: "Data" },
-  { name: "Git & GitHub", group: "Tools" },
-  { name: "Docker", group: "Tools" },
-  { name: "AWS", group: "Tools" },
-  { name: "CI/CD", group: "Tools" },
-  { name: "Linux & Postman", group: "Tools" },
+  { name: "Python", group: "Backend", icon: "python" },
+  { name: "Django & Django REST", group: "Backend", icon: "django" },
+  { name: "REST API Design", group: "Backend", icon: "api" },
+  { name: "JWT & RBAC", group: "Backend", icon: "security" },
+  { name: "JavaScript (ES6+)", group: "Frontend", icon: "javascript" },
+  { name: "React.js", group: "Frontend", icon: "react" },
+  { name: "Tailwind CSS", group: "Frontend", icon: "tailwind" },
+  { name: "HTML5 / CSS3", group: "Frontend", icon: "web" },
+  { name: "PostgreSQL", group: "Data", icon: "database" },
+  { name: "MySQL", group: "Data", icon: "database" },
+  { name: "MongoDB", group: "Data", icon: "database" },
+  { name: "Git & GitHub", group: "Tools", icon: "git" },
+  { name: "Docker", group: "Tools", icon: "docker" },
+  { name: "AWS", group: "Tools", icon: "cloud" },
+  { name: "CI/CD", group: "Tools", icon: "pipeline" },
+  { name: "Linux & Postman", group: "Tools", icon: "terminal" },
 ];
 
 export const skillGroups = ["All", "Backend", "Frontend", "Data", "Tools"];

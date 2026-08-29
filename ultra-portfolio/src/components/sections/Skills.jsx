@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SectionWrapper from "../common/SectionWrapper";
 import GlassCard from "../common/Glasscard";
+import SkillIcon from "../common/SkillIcon";
 import { skills, skillGroups } from "../../data/projects";
 
 const Skills = () => {
@@ -16,7 +17,7 @@ const Skills = () => {
             <div className="skills-visual-caption"><span className="pulse-dot" /> Systems, APIs & cloud</div>
           </div>
         </GlassCard>
-        <div className="grid sm:grid-cols-2 gap-3">{visibleSkills.map((skill) => <GlassCard key={skill.name} className="p-4 skill-card"><div className="flex items-center justify-between"><span className="text-sm text-slate-100">{skill.name}</span><span className="text-[10px] uppercase tracking-wider text-cyan-300">{skill.group}</span></div></GlassCard>)}</div>
+        <div className="grid sm:grid-cols-2 gap-3">{visibleSkills.map((skill) => <GlassCard key={skill.name} className="p-4 skill-card"><div className="flex items-center gap-3"><SkillIcon name={skill.icon} /><div className="flex min-w-0 flex-1 items-center justify-between gap-3"><span className="text-sm text-slate-100">{skill.name}</span><span className="text-[10px] uppercase tracking-wider text-cyan-300">{skill.group}</span></div></div></GlassCard>)}</div>
       </div>
     </SectionWrapper>
   );
