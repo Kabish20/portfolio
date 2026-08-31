@@ -1,140 +1,70 @@
 import React, { useState } from "react";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 import SectionWrapper from "../common/SectionWrapper";
 import GlassCard from "../common/Glasscard";
+import Icon from "../common/Icon";
+
+const contactConfig = {
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "rDIDnZjeT8onyO__V",
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_wpzto5g",
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_vrpdrh8",
+};
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('');
+  const [submitStatus, setSubmitStatus] = useState({ type: "", message: "" });
 
-  emailjs.init("rDIDnZjeT8onyO__V");
+  const handleChange = (event) => setFormData((current) => ({ ...current, [event.target.name]: event.target.value }));
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus('');
+    setSubmitStatus({ type: "", message: "" });
 
     try {
-      const response = await emailjs.send(
-        'service_wpzto5g', // Your EmailJS service ID
-        'template_vrpdrh8', // Your EmailJS template ID
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          to_email: 'kabishme@gmail.com' // Replace with your email
-        }
-      );
-
-      if (response.status === 200) {
-        setSubmitStatus('Message sent successfully!');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      }
+      const response = await emailjs.send(contactConfig.serviceId, contactConfig.templateId, {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject || "Portfolio enquiry",
+        message: formData.message,
+        to_email: "kabishme@gmail.com",
+      }, contactConfig.publicKey);
+      if (response.status !== 200) throw new Error("Message could not be sent");
+      setSubmitStatus({ type: "success", message: "Message sent — I will get back to you soon." });
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
-      console.error('Failed to send email:', error);
-      setSubmitStatus('Failed to send message. Please try again.');
+      console.error("Failed to send email:", error);
+      setSubmitStatus({ type: "error", message: "Something went wrong. Please email me directly at kabishme@gmail.com." });
     } finally {
       setIsSubmitting(false);
     }
   };
+
   return (
-    <SectionWrapper
-      id="contact"
-      kicker="Contact"
-      title="Let’s build something useful"
-      subtitle="Actively seeking backend and full-stack roles. Let’s connect."
-    >
-      {/* neon line + icons */}
-      <div className="flex flex-col items-center mb-7">
-        <div className="h-1 w-24 bg-gradient-to-r from-primary via-secondary to-accent rounded-full mb-4" />
-        <div className="flex gap-4 text-xs text-slate-200">
-         
+    <SectionWrapper id="contact" kicker="05 — contact" title="Have a system in mind?" subtitle="Actively looking for backend and full-stack opportunities. If there&apos;s a thoughtful problem to solve, let&apos;s talk.">
+      <div className="contact-layout">
+        <div className="contact-copy">
+          <p className="large-copy">Let&apos;s make the complicated parts feel simple.</p>
+          <p>Whether you&apos;re building a new product, untangling an existing backend, or looking for someone who can own the path from API to interface, I&apos;d love to hear what you&apos;re working on.</p>
+          <a className="email-link" href="mailto:kabishme@gmail.com"><span className="email-icon"><Icon name="mail" size={18} /></span><span><small>Write to me directly</small><strong>kabishme@gmail.com</strong></span><Icon name="arrowUpRight" size={16} /></a>
+          <div className="social-links">
+            <a href="https://github.com/Kabish20" target="_blank" rel="noopener noreferrer"><Icon name="github" size={17} /> GitHub</a>
+            <a href="https://www.linkedin.com/in/kabish-fullstack" target="_blank" rel="noopener noreferrer"><Icon name="linkedin" size={17} /> LinkedIn</a>
+          </div>
         </div>
+        <GlassCard className="contact-card">
+          <div className="form-header"><span>Start a conversation</span><span className="form-secure"><Icon name="check" size={13} /> secure form</span></div>
+          <form onSubmit={handleSubmit}>
+            <div className="form-row"><label><span>Name</span><input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your name" autoComplete="name" required /></label><label><span>Email</span><input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="you@email.com" autoComplete="email" required /></label></div>
+            <label><span>Subject <em>optional</em></span><input type="text" name="subject" value={formData.subject} onChange={handleChange} placeholder="What are you working on?" /></label>
+            <label><span>Message</span><textarea name="message" value={formData.message} onChange={handleChange} rows={5} placeholder="Tell me a little about the project, role, or idea..." required /></label>
+            <button type="submit" className="button button-primary form-submit" disabled={isSubmitting}>{isSubmitting ? "Sending message..." : "Send message"}<Icon name="arrowUpRight" size={16} /></button>
+            {submitStatus.message && <p className={`form-status ${submitStatus.type}`}>{submitStatus.message}</p>}
+          </form>
+        </GlassCard>
       </div>
-
-      <GlassCard className="max-w-3xl mx-auto p-6 md:p-7">
-        <form className="space-y-4" onSubmit={handleSubmit}>
-          <div>
-            <label className="block text-xs text-slate-300 mb-1">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full bg-black/40 border border-slate-700 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/40"
-              placeholder="Your name"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-xs text-slate-300 mb-1">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full bg-black/40 border border-slate-700 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/40"
-              placeholder="you@email.com"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-xs text-slate-300 mb-1">Subject</label>
-            <input
-              type="text"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              className="w-full bg-black/40 border border-slate-700 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/40"
-              placeholder="Subject (optional)"
-            />
-          </div>
-          <div>
-            <label className="block text-xs text-slate-300 mb-1">Message</label>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              rows={4}
-              className="w-full bg-black/40 border border-slate-700 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/40"
-              placeholder="Tell me about your project, role, or idea..."
-              required
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full mt-2 py-2.5 rounded-xl text-sm font-semibold
-                       bg-gradient-to-r from-primary via-secondary to-accent
-                       hover:brightness-110 transition disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
-          </button>
-
-          {submitStatus && (
-            <div className={`text-center text-sm mt-2 ${
-              submitStatus.includes('successfully') ? 'text-green-400' : 'text-red-400'
-            }`}>
-              {submitStatus}
-            </div>
-          )}
-        </form>
-      </GlassCard>
+      <footer className="site-footer"><span>© {new Date().getFullYear()} Kabish M. Elangovan</span><span>Designed &amp; built with care <span className="footer-heart">♥</span></span><a href="#hero">Back to top <Icon name="arrowUpRight" size={14} /></a></footer>
     </SectionWrapper>
   );
 };

@@ -3,11 +3,7 @@ import React from "react";
 const GlassCard = ({ className = "", children, style }) => {
   return (
     <div
-      className={
-        "bg-card-soft/80 border border-cyan-400/10 rounded-xl2 shadow-neon-soft backdrop-blur-xl " +
-        "transition-transform duration-200 hover:-translate-y-1 hover:shadow-neon-card " +
-        className
-      }
+      className={`panel rounded-2xl ${className}`}
       style={style}
     >
       {children}

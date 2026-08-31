@@ -1,33 +1,36 @@
 import React from "react";
 import SectionWrapper from "../common/SectionWrapper";
 import GlassCard from "../common/Glasscard";
-import Badge from "../common/Badge";
+import Icon from "../common/Icon";
 import { projects } from "../../data/projects";
 
+const ProjectVisual = ({ project, index }) => (
+  <div className={`project-visual project-visual-${project.accent}`}>
+    <img src={project.image} alt={`${project.title} project visual`} loading={index < 2 ? "eager" : "lazy"} />
+    <div className="project-visual-overlay" />
+    <div className="project-visual-meta"><span>Case study / 0{index + 1}</span><span>{project.type}</span></div>
+    <span className="visual-corner">0{index + 1}</span>
+  </div>
+);
+
 const Projects = () => (
-  <SectionWrapper id="projects" kicker="Selected work" title="Products I have shipped" subtitle="Resume-backed projects that show how I move from API design to a polished, deployable experience.">
-    <div className="grid md:grid-cols-2 gap-6">
+  <SectionWrapper id="projects" kicker="04 — selected work" title="A few things I&apos;ve shipped." subtitle="A small selection of products where the hard parts mattered — and the details made the difference.">
+    <div className="projects-list">
       {projects.map((project, index) => (
-        <GlassCard key={project.title} className="p-6 project-card" style={{ "--delay": `${index * 140}ms` }}>
-          <div className="flex justify-between items-start gap-3">
-            <div>
-              <p className="project-eyebrow">0{index + 1} / {project.eyebrow}</p>
-              <h3 className="text-xl font-semibold text-slate-50 mb-2">{project.title}</h3>
-              <Badge color="green">{project.type}</Badge>
-            </div>
-            <span className="project-arrow" aria-hidden="true">↗</span>
+        <GlassCard key={project.title} className={`project-card project-card-${index}`}>
+          <ProjectVisual project={project} index={index} />
+          <div className="project-content">
+            <div className="project-heading-row"><div><p className="project-eyebrow">{project.eyebrow}</p><h3>{project.title}</h3></div><span className="project-year">{project.year}</span></div>
+            <span className="project-type">{project.type}</span>
+            <p className="project-description">{project.description}</p>
+            <p className="project-outcome"><span>Outcome</span>{project.outcome}</p>
+            <div className="project-highlights">{project.highlights.map((highlight) => <span key={highlight}><Icon name="check" size={13} />{highlight}</span>)}</div>
+            <div className="project-footer"><div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><a href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.title} on GitHub`}><Icon name="arrowUpRight" size={18} /></a></div>
           </div>
-          <p className="mt-4 text-sm text-slate-300 leading-relaxed">{project.description}</p>
-          <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2">
-            {project.highlights.map((highlight) => <div key={highlight} className="project-highlight">{highlight}</div>)}
-          </div>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {project.tags.map((tag) => <span key={tag} className="px-3 py-1 rounded-full text-[11px] bg-slate-900 border border-slate-700 text-slate-200">{tag}</span>)}
-          </div>
-          <a href={project.link} target="_blank" rel="noopener noreferrer" className="mt-5 inline-block text-xs text-cyan-200 hover:text-white hover:underline">View project <span aria-hidden="true">→</span></a>
         </GlassCard>
       ))}
     </div>
+    <div className="projects-footer"><span>More experiments and source code</span><a href="https://github.com/Kabish20" target="_blank" rel="noopener noreferrer" className="text-link">Visit GitHub <Icon name="arrowUpRight" size={15} /></a></div>
   </SectionWrapper>
 );
 

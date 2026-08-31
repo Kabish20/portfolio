@@ -17,16 +17,14 @@ const SectionWrapper = ({ id, title, kicker, subtitle, children }) => {
   }, []);
 
   return (
-    <section ref={sectionRef} id={id} className="pb-16 reveal-on-scroll">
-      <header className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+    <section ref={sectionRef} id={id} className="section reveal-on-scroll">
+      <header className="section-header">
         <div>
           {kicker && <p className="section-kicker">{kicker}</p>}
           {title && <h2 className="section-title">{title}</h2>}
         </div>
         {subtitle && (
-          <p className="section-subtitle md:text-right">
-            {subtitle}
-          </p>
+          <p className="section-subtitle">{subtitle}</p>
         )}
       </header>
 

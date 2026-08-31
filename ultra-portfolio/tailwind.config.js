@@ -4,16 +4,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        dark: "#020617",
-        "card-dark": "#0b1220",
-        primary: "#6366f1",
-        "primary-soft": "#4f46e5",
-        accent: "#22c55e",
-        neon: "#a855f7",
+        dark: "#090a0b",
+        "card-dark": "#111314",
+        primary: "#c8ff45",
+        secondary: "#6ba7ff",
+        accent: "#b8ef72",
+        neon: "#d19cff",
+        shell: "#f4f5f2",
       },
       boxShadow: {
-        "soft-card": "0 18px 45px rgba(0,0,0,0.45)",
-        neon: "0 0 30px rgba(99,102,241,0.5)",
+        "soft-card": "0 18px 45px rgba(0, 0, 0, 0.24)",
+        neon: "0 12px 28px rgba(200, 255, 69, 0.12)",
       },
       borderRadius: {
         "3xl": "1.5rem",

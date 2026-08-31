@@ -16,14 +16,13 @@ import Contact from "./components/sections/Contact";
 
 const App = () => {
   return (
-    <div className="relative min-h-screen bg-[#050816] text-white overflow-hidden site-shell">
-      {/* subtle bg gradients */}
-      <div className="pointer-events-none fixed inset-0 -z-10">
+    <div className="site-shell">
+      <div className="site-background" aria-hidden="true">
         <div className="ambient-grid absolute inset-0" />
         <div className="ambient-noise absolute inset-0" />
-        <div className="absolute -top-40 -left-40 w-[420px] h-[420px] bg-primary/30 blur-3xl" />
-        <div className="absolute top-40 right-[-120px] w-[520px] h-[520px] bg-secondary/25 blur-3xl" />
-        <div className="absolute bottom-[-180px] left-1/3 w-[420px] h-[420px] bg-accent/20 blur-3xl" />
+        <div className="background-orb orb-one" />
+        <div className="background-orb orb-two" />
+        <div className="background-orb orb-three" />
       </div>
 
       <MouseGlow />
@@ -31,34 +30,20 @@ const App = () => {
       <AmbientParticles />
       <Navbar />
 
-      <main className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <section id="hero" className="pt-28 md:pt-32 pb-12">
+      <main className="main-content">
+        <section id="hero" className="hero-section">
           <Hero />
         </section>
 
-        <section id="stats" className="pb-16">
+        <section id="stats" className="stats-section">
           <StatsBar />
         </section>
 
-        <section id="about" className="pb-16">
-          <About />
-        </section>
-
-        <section id="experience" className="pb-16">
-          <Experience />
-        </section>
-
-        <section id="skills" className="pb-16">
-          <Skills />
-        </section>
-
-        <section id="projects" className="pb-20">
-          <Projects />
-        </section>
-
-        <section id="contact" className="pb-24">
-          <Contact />
-        </section>
+        <About />
+        <Experience />
+        <Skills />
+        <Projects />
+        <Contact />
       </main>
     </div>
   );

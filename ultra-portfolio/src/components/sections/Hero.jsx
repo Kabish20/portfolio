@@ -1,32 +1,57 @@
 import React from "react";
-import GlassCard from "../common/Glasscard";
-import Badge from "../common/Badge";
+import Icon from "../common/Icon";
 
 const Hero = () => (
-  <div className="grid gap-10 md:grid-cols-[1.35fr_0.9fr] items-center">
-    <div className="space-y-6 hero-copy">
-      <div className="hero-kicker"><span className="pulse-dot" /> Backend developer - open to opportunities</div>
-      <h1 className="text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-        <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">KABISH M. ELANGOVAN</span>
-        <span className="block mt-4 text-slate-200 text-xl md:text-2xl font-semibold tracking-normal">Python - Django - APIs - React</span>
+  <div className="hero-layout">
+    <div className="hero-copy">
+      <div className="hero-kicker"><span className="pulse-dot" /> Available for new opportunities <span className="hero-kicker-index">/ 01</span></div>
+      <h1>
+        I build the <span className="accent-text">digital backbone</span> behind great products.
       </h1>
-      <p className="text-sm md:text-base text-slate-300 max-w-xl leading-relaxed">Backend Developer with <span className="text-cyan-200">1+ year of professional experience</span> building scalable web applications with Python, Django REST Framework, React.js, and PostgreSQL. I design secure APIs, improve database performance, and ship responsive products with Git, Docker, AWS, and CI/CD.</p>
-      <div className="flex flex-wrap gap-3">
-        <a href="https://drive.google.com/file/d/1pnjX6cxVcN-kqQiUxXKK--Fb9cZDIN3A/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" className="primary-button">View Resume <span aria-hidden="true">-&gt;</span></a>
-        <a href="https://www.linkedin.com/in/kabish-fullstack" target="_blank" rel="noopener noreferrer" className="secondary-button">LinkedIn</a>
-        <a href="https://github.com/Kabish20" target="_blank" rel="noopener noreferrer" className="secondary-button">GitHub</a>
-        <a href="#contact" className="text-sm text-cyan-200 hover:text-white self-center transition">Contact <span aria-hidden="true">-&gt;</span></a>
+      <p className="hero-lede">I&apos;m Kabish — a backend-focused developer who turns complex workflows into reliable APIs, clean interfaces, and software that is ready for the real world.</p>
+      <div className="hero-actions">
+        <a href="#projects" className="button button-primary">See selected work <Icon name="arrowUpRight" size={17} /></a>
+        <a href="https://drive.google.com/file/d/1pnjX6cxVcN-kqQiUxXKK--Fb9cZDIN3A/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" className="button button-ghost">View resume <Icon name="external" size={15} /></a>
       </div>
-      <div className="flex flex-wrap gap-3 text-[11px] text-slate-300"><Badge>Chennai - India</Badge><Badge color="orange">B.E. - 8.30 CGPA</Badge></div>
+      <div className="hero-meta">
+        <span><Icon name="mapPin" size={14} /> Chennai, India</span>
+        <span className="meta-divider" />
+        <span><span className="meta-dot" /> Open to backend &amp; full-stack roles</span>
+      </div>
     </div>
-    <GlassCard className="p-6 md:p-7 hero-card">
-      <div className="hero-orbit" aria-hidden="true"><span>PY</span><span>DJ</span><span>DB</span></div>
-      <div className="relative z-10 space-y-5">
-        <div><p className="project-eyebrow">PROFILE SNAPSHOT</p><h2 className="text-2xl font-semibold text-white">Building systems people can rely on.</h2></div>
-        <p className="text-sm leading-relaxed text-slate-300">From authentication and RBAC to booking workflows and production deployment, I enjoy making the invisible parts of a product feel solid.</p>
-        <div className="grid grid-cols-2 gap-3 text-xs"><div className="mini-metric"><strong>15+</strong><span>APIs built</span></div><div className="mini-metric"><strong>1+ yr</strong><span>Industry experience</span></div></div>
+
+    <div className="hero-console" aria-label="Developer profile snapshot">
+      <div className="console-topbar">
+        <div className="window-dots"><span /><span /><span /></div>
+        <span className="console-path">~/kabish/profile.ts</span>
+        <span className="console-status"><span /> online</span>
       </div>
-    </GlassCard>
+      <div className="console-body">
+        <div className="code-lines" aria-hidden="true">
+          <span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span>
+        </div>
+        <pre><code><span className="code-purple">const</span> <span className="code-green">developer</span> = {'{'}{`\n`}
+  <span className="code-key">name</span>: <span className="code-orange">&quot;Kabish M. Elangovan&quot;</span>,{`\n`}
+  <span className="code-key">role</span>: <span className="code-orange">&quot;Backend Developer&quot;</span>,{`\n`}
+  <span className="code-key">focus</span>: [<span className="code-orange">&quot;APIs&quot;</span>, <span className="code-orange">&quot;systems&quot;</span>, <span className="code-orange">&quot;product&quot;</span>],{`\n`}
+  <span className="code-key">stack</span>: {'{'}{`\n`}
+    <span className="code-key">backend</span>: [<span className="code-orange">&quot;Python&quot;</span>, <span className="code-orange">&quot;Django&quot;</span>],{`\n`}
+    <span className="code-key">frontend</span>: [<span className="code-orange">&quot;React&quot;</span>, <span className="code-orange">&quot;Tailwind&quot;</span>],{`\n`}
+    <span className="code-key">data</span>: [<span className="code-orange">&quot;PostgreSQL&quot;</span>]{`\n`}
+  {'}'},{`\n`}
+  <span className="code-key">status</span>: <span className="code-green">&quot;shipping&quot;</span>{`\n`}
+{'}'};</code></pre>
+      </div>
+      <div className="console-footer"><span><Icon name="terminal" size={14} /> build with intention</span><span>v1.0.0</span></div>
+      <div className="console-float"><span className="float-icon"><Icon name="spark" size={16} /></span><span><strong>15+</strong><small>REST APIs shipped</small></span></div>
+    </div>
+
+    <div className="hero-proof">
+      <div><strong>01<span>+</span></strong><small>Year building<br />for production</small></div>
+      <div><strong>15<span>+</span></strong><small>RESTful APIs<br />designed &amp; shipped</small></div>
+      <div><strong>8.30</strong><small>B.E. Computer<br />Science CGPA</small></div>
+      <div className="hero-proof-note"><Icon name="arrowDown" size={16} /><span>Scroll to<br />explore</span></div>
+    </div>
   </div>
 );
 

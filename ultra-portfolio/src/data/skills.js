@@ -1,30 +1,20 @@
 export const skills = [
-  { name: "Python", group: "Backend" },
-  { name: "Django & Django REST", group: "Backend" },
-  { name: "REST API Design", group: "Backend" },
-
-
-  { name: "SQL", group: "Data" },
-  { name: "PostgreSQL", group: "Data" },
-  { name: "SQLite", group: "Data" },
-  { name: "MongoDB", group: "Data" },
-
-
-
-  { name: "JavaScript ", group: "Frontend" },
-  { name: "React", group: "Frontend" },
-  { name: "Tailwind CSS", group: "Frontend" },
-  { name: "HTML / CSS", group: "Frontend" },
-  { name: "Bootstrap", group: "Frontend" },
-  { name: "Node.js", group: "Frontend" },
-
-
-  { name: "Git & GitHub", group: "Tools" },
-  { name: "Postman / API Testing", group: "Tools" },
-  { name: "VS Code", group: "Tools" },
-  { name: "Sublime Text", group: "Tools" },
-  { name: "Cusor AI", group: "Tools" },
-  { name: "Trae AI", group: "Tools" },
+  { name: "Python", group: "Backend", icon: "python", level: "Core" },
+  { name: "Django & DRF", group: "Backend", icon: "django", level: "Core" },
+  { name: "REST API Design", group: "Backend", icon: "api", level: "Core" },
+  { name: "JWT & RBAC", group: "Backend", icon: "security", level: "Core" },
+  { name: "JavaScript (ES6+)", group: "Frontend", icon: "javascript", level: "Core" },
+  { name: "React.js", group: "Frontend", icon: "react", level: "Core" },
+  { name: "Tailwind CSS", group: "Frontend", icon: "tailwind", level: "Working" },
+  { name: "HTML5 / CSS3", group: "Frontend", icon: "web", level: "Core" },
+  { name: "PostgreSQL", group: "Data", icon: "database", level: "Core" },
+  { name: "MySQL", group: "Data", icon: "database", level: "Working" },
+  { name: "MongoDB", group: "Data", icon: "database", level: "Working" },
+  { name: "Git & GitHub", group: "Tools", icon: "git", level: "Core" },
+  { name: "Docker", group: "Tools", icon: "docker", level: "Working" },
+  { name: "AWS", group: "Tools", icon: "cloud", level: "Working" },
+  { name: "CI/CD", group: "Tools", icon: "pipeline", level: "Working" },
+  { name: "Linux & Postman", group: "Tools", icon: "terminal", level: "Core" },
 ];
 
 export const skillGroups = ["All", "Backend", "Frontend", "Data", "Tools"];
